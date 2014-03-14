@@ -1,7 +1,7 @@
 package framesis;
 
-public interface TextMiningTask {
+public interface TextMiningTask<T> {
 
-	public String perform(String data);
+	public String perform(T data);
 	public String getDescription();
 }
