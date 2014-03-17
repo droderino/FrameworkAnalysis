@@ -2,5 +2,5 @@ package framesis;
 
 public interface DataPreparation {
 
-	public String prepare(String data);
+	public String prepare(String file);
 }

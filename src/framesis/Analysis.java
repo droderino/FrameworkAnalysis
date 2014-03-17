@@ -1,24 +1,27 @@
 package framesis;
 
+import java.util.Map;
+
+@SuppressWarnings("rawtypes")
 public class Analysis {
 
-	private DataPreparation prep;
 	private TextMiningTask task;
-	
-	public void setDataPreparation(DataPreparation dp)
-	{
-		prep = dp;
-	}
 	
 	public void setTextMiningTask(TextMiningTask task)
 	{
 		this.task = task;
 	}
 	
-	public String excecute(String data)
+	@SuppressWarnings("unchecked")
+	public String execute(Map<String, String> params)
 	{
-		data = prep.prepare(data);
-		String res = task.perform(data);
-		return res;
+		return task.execute(params);
+	}
+	public String execute(Map<String, String> params, DataPreparation prep)
+	{
+		String preparatedFile = prep.prepare(params.get("file"));
+		params.put("preparatedFile", preparatedFile);
+		String processedFile = execute(params);
+		return processedFile;
 	}
 }

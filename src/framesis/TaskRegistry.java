@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@SuppressWarnings("rawtypes")
 public class TaskRegistry {
 
 	private static List<Class<TextMiningTask>> tmTasks;
@@ -13,13 +14,11 @@ public class TaskRegistry {
 		tmTasks = new ArrayList<Class<TextMiningTask>>();
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static synchronized void register(Class clazz)
+	public static synchronized void register(Class<TextMiningTask> clazz)
 	{
 		tmTasks.add(clazz);
 	}
 	
-	@SuppressWarnings("rawtypes")
 	public static synchronized void deregister(Class clazz)
 	{
 		tmTasks.remove(clazz);
