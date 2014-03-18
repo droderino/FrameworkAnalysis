@@ -1,4 +1,4 @@
-package framesis;
+package framesis.api;
 
 public interface DataPreparation {
 

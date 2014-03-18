@@ -1,4 +1,4 @@
-package framesis;
+package framesis.api;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,8 @@ public class TaskRegistry {
 		tmTasks = new ArrayList<Class<TextMiningTask>>();
 	}
 	
-	public static synchronized void register(Class<TextMiningTask> clazz)
+	@SuppressWarnings("unchecked")
+	public static synchronized void register(Class clazz)
 	{
 		tmTasks.add(clazz);
 	}

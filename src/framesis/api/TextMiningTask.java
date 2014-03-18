@@ -1,4 +1,4 @@
-package framesis;
+package framesis.api;
 
 import java.util.Map;
 
