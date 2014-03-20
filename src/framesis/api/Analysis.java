@@ -15,14 +15,14 @@ public class Analysis {
 	@SuppressWarnings("unchecked")
 	public String execute(Map<String, String> params)
 	{
-		params.put("preparatedFile", params.get("file"));
+		params.put("preparatedFile", params.get(TextMiningTask.FILE));
 		return task.execute(params);
 	}
-	public String execute(Map<String, String> params, DataPreparation prep)
+	public String execute(Map<String, String> tmParams, DataPreparation prep, Map<String, String> dpParams)
 	{
-		String preparatedFile = prep.prepare(params.get("file"));
-		params.put("preparatedFile", preparatedFile);
-		String processedFile = execute(params);
+		String preparatedFile = prep.prepare(dpParams);
+		tmParams.put("preparatedFile", preparatedFile);
+		String processedFile = execute(tmParams);
 		return processedFile;
 	}
 }
